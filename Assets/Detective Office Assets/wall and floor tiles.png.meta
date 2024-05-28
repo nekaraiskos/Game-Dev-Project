@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 9
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,10 +113,10 @@ TextureImporter:
       name: wall and floor tiles_0
       rect:
         serializedVersion: 2
-        x: 76
-        y: 79
-        width: 5
-        height: 75
+        x: 0
+        y: 120
+        width: 64
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,8 +157,8 @@ TextureImporter:
         serializedVersion: 2
         x: 147
         y: 79
-        width: 28
-        height: 53
+        width: 30
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,9 +176,9 @@ TextureImporter:
       name: wall and floor tiles_3
       rect:
         serializedVersion: 2
-        x: 16
-        y: 4
-        width: 65
+        x: 241
+        y: 47
+        width: 5
         height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -197,10 +197,10 @@ TextureImporter:
       name: wall and floor tiles_4
       rect:
         serializedVersion: 2
-        x: 81
-        y: 15
-        width: 96
-        height: 64
+        x: 241
+        y: 64
+        width: 5
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: wall and floor tiles_5
       rect:
         serializedVersion: 2
-        x: 146
-        y: 4
-        width: 65
-        height: 75
+        x: 241
+        y: 36
+        width: 5
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,6 +231,216 @@ TextureImporter:
       bones: []
       spriteID: d2d9ac9f82c115b479f22e6f3f964096
       internalID: -1083323455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall and floor tiles_6
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 15
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f08a30440aacc734c85ee15e02d9c273
+      internalID: -1284307281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall and floor tiles_7
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 4
+        width: 96
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b41cb4cb310db1e418ea6bac037e78e4
+      internalID: -839933447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall and floor tiles_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 64
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d0352a5fa39144295f3c3cac6f31a5
+      internalID: 554810811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall and floor tiles_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 40
+        width: 64
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 195b7e2b8abe6254e932cbc0f727a8ea
+      internalID: -818277156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall and floor tiles_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 40
+        width: 64
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0d4fd25bff104408f1ae1ab06c9ac5
+      internalID: 1106498374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall and floor tiles_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 40
+        width: 64
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb40a02c0927324384c00a0c8267da5
+      internalID: -2121847529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall and floor tiles_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 211f13e22ab05b24ebec69c2ffc4722f
+      internalID: -1734203679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall and floor tiles_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc1a8336b42abb4da2fe7e3ef3a9acf
+      internalID: 465491838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall and floor tiles_14
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 0
+        width: 64
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fce786cc2b3e814f8e40055176e72b8
+      internalID: -980509349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wall and floor tiles_15
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dafe4d9ef7a1c4429ca238d77c85e57
+      internalID: 987888893
       vertices: []
       indices: 
       edges: []
@@ -248,10 +458,20 @@ TextureImporter:
     nameFileIdTable:
       wall and floor tiles_0: 296216004
       wall and floor tiles_1: 1705558402
+      wall and floor tiles_10: 1106498374
+      wall and floor tiles_11: -2121847529
+      wall and floor tiles_12: -1734203679
+      wall and floor tiles_13: 465491838
+      wall and floor tiles_14: -980509349
+      wall and floor tiles_15: 987888893
       wall and floor tiles_2: -1510207409
       wall and floor tiles_3: 475375120
       wall and floor tiles_4: -755029979
       wall and floor tiles_5: -1083323455
+      wall and floor tiles_6: -1284307281
+      wall and floor tiles_7: -839933447
+      wall and floor tiles_8: 554810811
+      wall and floor tiles_9: -818277156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
