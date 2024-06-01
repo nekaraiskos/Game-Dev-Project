@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemData : MonoBehaviour
+public class itemData : MonoBehaviour
 {
-    public Transform goToPoint;
+    public int itemID, requiredItemID, speed;
+    public Transform goToPoint, inventoryPosition;
+    public Transform item;
 }
