@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
+    public bool inspectMode = false;
     GameManager gameManager;
+    ClickManager clickManager;
     public static InputManager Instance { get; private set; }
 
     private void Awake()
@@ -13,7 +16,7 @@ public class InputManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Make sure InputManager persists between scenes
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -21,45 +24,52 @@ public class InputManager : MonoBehaviour
         }
     }
 
-
     public Transform Bar;
     public bool inventoryActive;
-    // Update is called once per frame
 
     void Update()
     {
-        // Check if the space bar is pressed
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-
-            // Call the function you want to trigger
-            InventoryToggle();
+        if (Input.GetKeyDown(KeyCode.Space))  {
+            inventoryToggle();
+        }
+        if (Input.GetKeyDown(KeyCode.I))  {
+            Debug.Log("I was pressed!");
+            if (inspectMode)  {
+                inspectMode = false;
+            }
+            else  {
+                inspectMode = true;
+            }
+            ClickManager.Instance.setSelectedItem(null);
         }
     }
-
-    // Define the function you want to trigger
 
     public bool getInventoryActive()  {
         return(inventoryActive);
     }
 
-    public void InventoryToggle()
+    public bool getInspectMode()  {
+        return(inspectMode);
+    }
+
+    public void inventoryToggle()
     {
         if (inventoryActive == true)  {
             Bar.position += new Vector3(0, 2, 0);
             inventoryActive = false;
             foreach (itemData collectedItem in GameManager.CollectedItems)  {
-                collectedItem.item.position += new Vector3(0, 2, 0); 
+                collectedItem.item.position += new Vector3(0, 2, 0);
+                collectedItem.inventoryImage.gameObject.SetActive(false);
             }
         }
         else  {
             Bar.position += new Vector3(0, -2, 0);
             inventoryActive = true;
             foreach (itemData collectedItem in GameManager.CollectedItems)  {
-                collectedItem.item.position += new Vector3(0, -2, 0); 
+                collectedItem.item.position += new Vector3(0, -2, 0);
+                collectedItem.inventoryImage.gameObject.SetActive(true);
             }
         }
-        // Add your function logic here
         Debug.Log("Space bar was pressed!");
     }
 }
