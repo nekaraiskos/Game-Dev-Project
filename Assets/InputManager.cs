@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
-    public bool inspectMode = false;
+    public bool inspectMode = false, inventoryActive;
+    public Transform Bar;
     GameManager gameManager;
     ClickManager clickManager;
     public static InputManager Instance { get; private set; }
@@ -24,8 +25,6 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    public Transform Bar;
-    public bool inventoryActive;
 
     void Update()
     {
@@ -34,6 +33,9 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.I))  {
             Debug.Log("I was pressed!");
+            if (UIManager.Instance.getTextAcive())  {
+                return;
+            }
             if (inspectMode)  {
                 inspectMode = false;
             }
@@ -47,13 +49,15 @@ public class InputManager : MonoBehaviour
     public bool getInventoryActive()  {
         return(inventoryActive);
     }
+    public void setInspectMode(bool set)  {
+        inspectMode = set;
+    }
 
     public bool getInspectMode()  {
         return(inspectMode);
     }
 
-    public void inventoryToggle()
-    {
+    public void inventoryToggle()  {
         if (inventoryActive == true)  {
             Bar.position += new Vector3(0, 2, 0);
             inventoryActive = false;
