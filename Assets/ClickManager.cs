@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class ClickManager : MonoBehaviour
 {
     private bool redFlag = false, blueFlag = false, yellowFlag = false;
+    public Text jealousy;
     public itemData selectedItem = null, noteWritten, safeNote;
     public Transform player, candleLit, safeOpen;
     static float moveSpeed = 6f, itemMoveSpeed = 60f;
     GameManager gameManager;
+    UIManager uiManager;
     public Transform DefInventory;
     public void Start()  {
         gameManager = FindObjectOfType<GameManager>();
@@ -76,14 +78,14 @@ public class ClickManager : MonoBehaviour
             switch (selectedItem.itemID)  {
                 case 1:
                     selectedItem.item.position = new Vector3(0.79f, -2.98f, 0);
-                    Debug.Log("OH THE IRONY");
+                    UIManager.Instance.UpdateText("It fits...");
                     break;
                 case 3:
                     if (selectedItem.itemID == imageCheck.imageID)  {
                         candleLit.position = new Vector3(-5.73952f, 2.24513f, 0);
                         Destroy(imageCheck.image);
                         selectedItem = null;
-                        Debug.Log("Arson achieved");
+                        UIManager.Instance.UpdateText("Arson achieved");
                     }
                     break;
                 case 4:
@@ -93,7 +95,7 @@ public class ClickManager : MonoBehaviour
                         Destroy(selectedItem.gameObject);
                         attemptItemAquisition(noteWritten);
                         selectedItem = null;
-                        Debug.Log("Arson achieved");
+                        UIManager.Instance.UpdateText("Arson achieved");
                     }
                     break;
                 case 5:
@@ -103,37 +105,38 @@ public class ClickManager : MonoBehaviour
                         GameManager.CollectedItems.Remove(selectedItem);
                         Destroy(selectedItem.inventoryImage);
                         selectedItem = null;
-                        Debug.Log("RED frame PLACED");
+                        Destroy(imageCheck.gameObject);
                         if (redFlag && blueFlag && yellowFlag)  {
-                            Debug.Log("EURIKA");
+                            jealousy.transform.localPosition += new Vector3(-10, 0, 0);
+                            UIManager.Instance.UpdateText("A message has apeared on the wall.");
                         }
                     }
                     break;
                 case 6:
                     if (selectedItem.itemID == imageCheck.imageID)  {
                         selectedItem.item.position = new Vector3(3.62f, 3.33f, 0);
-                        Destroy(imageCheck);
+                        Destroy(imageCheck.gameObject);
                         blueFlag = true;
                         GameManager.CollectedItems.Remove(selectedItem);
                         Destroy(selectedItem.inventoryImage);
                         selectedItem = null;
-                        Debug.Log("BLUE frame PLACED");
                         if (redFlag && blueFlag && yellowFlag)  {
-                            Debug.Log("EURIKA");
+                            jealousy.transform.localPosition += new Vector3(-10, 0, 0);
+                            UIManager.Instance.UpdateText("A message has apeared on the wall.");
                         }
                     }
                     break;
                 case 7:
                     if (selectedItem.itemID == imageCheck.imageID)  {
                         selectedItem.item.position = new Vector3(5.623f, 3.33f, 0);
-                        Destroy(imageCheck);
+                        Destroy(imageCheck.gameObject);
                         yellowFlag = true;
                         GameManager.CollectedItems.Remove(selectedItem);
                         Destroy(selectedItem.inventoryImage);
                         selectedItem = null;
-                        Debug.Log("YELLOW frame PLACED");
                         if (redFlag && blueFlag && yellowFlag)  {
-                            Debug.Log("EURIKA");
+                            jealousy.transform.localPosition += new Vector3(-10, 0, 0);
+                            UIManager.Instance.UpdateText("A message has apeared on the wall.");
                         }
                     }
                     break;
@@ -146,7 +149,7 @@ public class ClickManager : MonoBehaviour
                     }
                     break;
                 default:
-                    Debug.Log("Unknown item selected.");
+                    UIManager.Instance.UpdateText("Unknown item selected.");
                     break;
             }
         }
@@ -159,31 +162,31 @@ public class ClickManager : MonoBehaviour
         if (InputManager.Instance.getInspectMode())  {
             switch (item.itemID)  {
                 case 1:
-                        Debug.Log("My what a lovely tie. I just hope no-one had to die to this tie. That would just make me cry");
+                        UIManager.Instance.UpdateText("It's a tie covered in blood. Probably the weapon used to commit the murder. It has pretty garish colours.");
                         break;
                 case 3:
-                        Debug.Log("Matchtastic");
+                        UIManager.Instance.UpdateText("A simple match box.");
                         break;
                 case 4:
-                        Debug.Log("This is a piece of paper made of wood");
+                        UIManager.Instance.UpdateText("It's a piece of paper. I can faintly feel indentations on it, as if it has been written on, but i can's see aything.");
                         break;
                 case 5:
-                        Debug.Log("Ze red frame");
+                        UIManager.Instance.UpdateText("It's a red frame. It can be placed on a surface or be hang.");
                         break;
                 case 6:
-                        Debug.Log("Ze blue frame");
+                        UIManager.Instance.UpdateText("It's a blue frame. It can be placed on a surface or be hang.");
                         break;
                 case 7:
-                        Debug.Log("Ze yellow frame");
+                        UIManager.Instance.UpdateText("It's a yellow frame. It can be placed on a surface or be hang.");
                         break;
                 case 8:
-                        Debug.Log("Useless piece of paper, just has a bunch of random numbers written on it. Useless");
+                        UIManager.Instance.UpdateText("It has random numbers written on it now.");
                         break;
                 case 9:
-                        Debug.Log("Something something killer");
+                        UIManager.Instance.UpdateText("It reads: Dear brother, I am tired of seeing all the attention and admiration you always receive. I cannot compete with you anymore. I hate you!");
                         break;
                 default:
-                    Debug.Log("No comment");
+                    UIManager.Instance.UpdateText("No comment");
                     break;
             }
         }
@@ -193,22 +196,25 @@ public class ClickManager : MonoBehaviour
         if (InputManager.Instance.getInspectMode())  {
             switch (envCode)  {
                 case 0:
-                        Debug.Log("Yeeeeeeeep... he dead");
+                        UIManager.Instance.UpdateText("He has already passed. The cause of death seems to be asphyxiation. The blood came from the fall afterwards");
                         break;
                 case 1:
-                        Debug.Log("It's a wardrobe");
+                        UIManager.Instance.UpdateText("It's a wardrobe");
                         break;
                 case 2:
-                        Debug.Log("An inconspicuous UNLIT candle, hmmmmmm. What could i possibly do with an UNLIT candle");
+                        UIManager.Instance.UpdateText("It's a canlde. It seems to have been used frequently and recently.");
                         break;
                 case 3:
-                        Debug.Log("Such a nice STRONG flame, why you could probably see through objects made from wood composites with it");
+                        UIManager.Instance.UpdateText("It holds a suprisingly strong flame, for its size.");
                         break;
                 case 4:
-                        Debug.Log("Nothing to see here. Just your typical floor safe");
+                        UIManager.Instance.UpdateText("It needs a number combination to open");
+                        break;
+                case 5:
+                        UIManager.Instance.UpdateText("It's a hook hammered into the wall.");
                         break;
                 default:
-                    Debug.Log("No comment");
+                    UIManager.Instance.UpdateText("No comment");
                     break;
             }
         }
