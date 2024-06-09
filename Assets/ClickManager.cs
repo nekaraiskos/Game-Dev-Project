@@ -18,6 +18,7 @@ public class ClickManager : MonoBehaviour
     static float moveSpeed = 6f, itemMoveSpeed = 60f;
     GameManager gameManager;
     UIManager uiManager;
+    AudioManager audioManager;
     public void Start()  {
         gameManager = FindObjectOfType<GameManager>();
     }
@@ -26,6 +27,7 @@ public class ClickManager : MonoBehaviour
 
     private void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         // Ensure only one instance of ClickManager exists
         if (Instance == null)
         {
@@ -70,6 +72,7 @@ public class ClickManager : MonoBehaviour
             return;
         }
         if (GameManager.CollectedItems.Contains(item))  {
+            audioManager.PlaySFX(audioManager.equip);
             Debug.Log("ITEM SELECTED: " + item.itemID);
             selectedItem = item;
         }
@@ -145,6 +148,7 @@ public class ClickManager : MonoBehaviour
                         break;
                     case 3:
                         if (selectedItem.itemID == imageCheck.imageID)  {
+                            audioManager.PlaySFX(audioManager.lightMatch);
                             candleLit.position = new Vector3(-5.73952f, 2.24513f, 0);
                             Destroy(imageCheck.image);
                             selectedItem = null;
@@ -153,6 +157,7 @@ public class ClickManager : MonoBehaviour
                         break;
                     case 4:
                         if (selectedItem.itemID == imageCheck.imageID)  {
+                            audioManager.PlaySFX(audioManager.paperRuffles);
                             GameManager.CollectedItems.Remove(selectedItem);
                             Destroy(selectedItem.inventoryImage);
                             Destroy(selectedItem.gameObject);
@@ -163,6 +168,7 @@ public class ClickManager : MonoBehaviour
                         break;
                     case 5:
                         if (selectedItem.itemID == imageCheck.imageID)  {
+                            audioManager.PlaySFX(audioManager.placeFrame);
                             selectedItem.item.position = new Vector3(4.619f, 3.33f, 0);
                             redFlag = true;
                             GameManager.CollectedItems.Remove(selectedItem);
@@ -178,6 +184,7 @@ public class ClickManager : MonoBehaviour
                         break;
                     case 6:
                         if (selectedItem.itemID == imageCheck.imageID)  {
+                            audioManager.PlaySFX(audioManager.placeFrame);
                             selectedItem.item.position = new Vector3(3.62f, 3.33f, 0);
                             Destroy(imageCheck.gameObject);
                             blueFlag = true;
@@ -193,6 +200,7 @@ public class ClickManager : MonoBehaviour
                         break;
                     case 7:
                         if (selectedItem.itemID == imageCheck.imageID)  {
+                            audioManager.PlaySFX(audioManager.placeFrame);
                             selectedItem.item.position = new Vector3(5.623f, 3.33f, 0);
                             Destroy(imageCheck.gameObject);
                             yellowFlag = true;
@@ -208,6 +216,7 @@ public class ClickManager : MonoBehaviour
                         break;
                     case 8:
                         if (selectedItem.itemID == imageCheck.imageID)  {
+                            audioManager.PlaySFX(audioManager.safeOpen);
                             safeOpen.position = new Vector3(5.6f, -3.3f, 0);
                             Destroy(imageCheck.image);
                             attemptItemAquisition(safeNote);
