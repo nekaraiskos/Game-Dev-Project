@@ -187,6 +187,7 @@ public class ClickManager : MonoBehaviour
                 switch (selectedItem.itemID)  {
                     case 1:
                         selectedItem.item.position = new Vector3(0.79f, -2.98f, 0);
+                        selectedItem.changeSortingLayer("Default");
                         UIManager.Instance.UpdateText("It fits...");
                         break;
                     case 3:
