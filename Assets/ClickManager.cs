@@ -207,7 +207,7 @@ public class ClickManager : MonoBehaviour
                             Destroy(selectedItem.gameObject);
                             attemptItemAquisition(noteWritten);
                             selectedItem = null;
-                            UIManager.Instance.UpdateText("Arson achieved 2: set fire to the loo.");
+                            UIManager.Instance.UpdateText("Arson 2: electric boogaloo.");
                         }
                         break;
                     case 5:

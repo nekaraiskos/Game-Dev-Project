@@ -1260,7 +1260,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.95159256, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.28235295, g: 0.27450982, b: 0.32941177, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3101,7 +3101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 109
   requiredItemID: -1
-  speed: 15
+  speed: 5
   goToPoint: {fileID: 0}
   inventoryPosition: {fileID: 182654236}
   item: {fileID: 747865762}
@@ -3731,6 +3731,7 @@ MonoBehaviour:
   bite: {fileID: 8300000, guid: 93cead2376f0e634a8088da28d4105f1, type: 3}
   deathSound: {fileID: 8300000, guid: 7c4f47eb3ee2fcc4fa01c5021b5469b5, type: 3}
   hey: {fileID: 8300000, guid: 9b8a288eb673c434a941b35174034029, type: 3}
+  cupboard: {fileID: 0}
 --- !u!1 &804296811
 GameObject:
   m_ObjectHideFlags: 0
@@ -7291,7 +7292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jealousy: {fileID: 0}
-  player: {fileID: 0}
   candleLit: {fileID: 0}
   safeOpen: {fileID: 0}
   lampOpen: {fileID: 0}
@@ -7340,6 +7340,7 @@ MonoBehaviour:
   bite: {fileID: 8300000, guid: 93cead2376f0e634a8088da28d4105f1, type: 3}
   deathSound: {fileID: 8300000, guid: 7c4f47eb3ee2fcc4fa01c5021b5469b5, type: 3}
   hey: {fileID: 8300000, guid: 9b8a288eb673c434a941b35174034029, type: 3}
+  cupboard: {fileID: 0}
 --- !u!1 &1665165904
 GameObject:
   m_ObjectHideFlags: 0
