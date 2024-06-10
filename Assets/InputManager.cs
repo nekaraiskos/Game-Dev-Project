@@ -10,11 +10,13 @@ public class InputManager : MonoBehaviour
     public Transform Bar;
     GameManager gameManager;
     ClickManager clickManager;
+    AudioManager audioManager;
     private bool inputMode= false; // Flag to control player input
     private string userInput = "", correctInput = "426"; // String variable to store user input
     public static InputManager Instance { get; private set; }
 
     private void Awake()  {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         // Ensure only one instance of InputManager exists
         if (Instance == null)
         {
@@ -62,6 +64,7 @@ public class InputManager : MonoBehaviour
                 inspectMode = false;
             }
             else  {
+                audioManager.PlaySFX(audioManager.inspect);
                 inspectMode = true;
             }
             ClickManager.Instance.setSelectedItem(null);
@@ -95,6 +98,7 @@ public class InputManager : MonoBehaviour
 
     public void inventoryToggle()  {
         if (inventoryActive == true)  {
+            audioManager.PlaySFX(audioManager.invClose);
             Bar.position += new Vector3(0, 2, 0);
             inventoryActive = false;
             foreach (itemData collectedItem in GameManager.CollectedItems)  {
@@ -103,6 +107,7 @@ public class InputManager : MonoBehaviour
             }
         }
         else  {
+            audioManager.PlaySFX(audioManager.invOpen);
             Bar.position += new Vector3(0, -2, 0);
             inventoryActive = true;
             foreach (itemData collectedItem in GameManager.CollectedItems)  {
