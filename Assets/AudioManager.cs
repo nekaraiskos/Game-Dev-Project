@@ -28,6 +28,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip bite;
     public AudioClip deathSound;
     public AudioClip hey;
+    public AudioClip cupboard;
 
     private void Start () {
         musicSource.clip = background;
