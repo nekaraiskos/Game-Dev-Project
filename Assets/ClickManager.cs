@@ -9,7 +9,7 @@ public class ClickManager : MonoBehaviour
     //These are the preloaded, out of bounds objects for level 1
     private bool redFlag = false, blueFlag = false, yellowFlag = false;
     public Text jealousy;
-    public Transform player, candleLit, safeOpen, lampOpen;
+    public Transform candleLit, safeOpen, lampOpen;
     public itemData noteWritten, safeNote;
     //These are the preloaded, out of bounds objects for level 2
     public Transform smallLockerOpen, tempObject = null;
@@ -176,7 +176,7 @@ public class ClickManager : MonoBehaviour
                 break;
         }
         if (evidence1 == true && evidence2 == true && evidence3 == true && evidence4 == true && evidence5 == true)  {
-            UIManager.Instance.UpdateText("Hrudidur, nine killer pleasures, um, i mean seven deadly sins.");
+            UIManager.Instance.UpdateText("Hmmm, these murders remind me of something, maybe the nine killer pleasures, um, i mean seven deadly sins. I just remembered I had another case in the file cabinet! But where is the key...");
         }
 
     }
@@ -296,6 +296,7 @@ public class ClickManager : MonoBehaviour
                             Destroy(imageCheck.gameObject);
                             audioManager.PlaySFX(audioManager.poison);
                             //Play HEY!! sound effect here
+                            UIManager.Instance.UpdateText("Almost done. I just need to hide the poison somehow");
                             holdItem = null;
                         }
                         break;
@@ -310,6 +311,7 @@ public class ClickManager : MonoBehaviour
                             attemptItemAquisition(holdItem);
                             Destroy(imageCheck.gameObject);
                             //Play HEY!! sound effect here
+                            UIManager.Instance.UpdateText("Perfect. One cake coming right up!");
                             holdItem = null;
                         }
                         break;
@@ -332,7 +334,6 @@ public class ClickManager : MonoBehaviour
                             Destroy(tempObject.gameObject);
                             Destroy(imageCheck.gameObject);
                             audioManager.PlaySFX(audioManager.sweeping);
-                            //Play HEY!! sound effect here
                             blueFlag = true;
                             holdItem = null;
                             tempObject = null;
@@ -398,8 +399,11 @@ public class ClickManager : MonoBehaviour
                         break;
                 }
             }
-            else if (selectedItem.itemID < 200)  {
-                switch (selectedItem.itemID)  {
+            else if (item.itemID < 200)  {
+                switch (item.itemID)  {
+                    case 102:
+                        UIManager.Instance.UpdateText("It's a note with a series of numbers written on it");
+                        break;
                 }
             }
             else if (item.itemID < 300)  {
