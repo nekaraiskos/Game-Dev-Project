@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour  {
     public bool textActive = false;
-    public Text text;
-    public Image textAccept;
-    public Transform textBox, boxOperative;
+    public int secondaryText = 0;
+    public Text text, secondText;
+    public Image textAccept, secondTextAccept;
+    public Transform textBox, boxOperative, secondOperative, secondTextBox;
     public static UIManager Instance { get; private set; }
 
     private void Awake()  {
@@ -23,11 +24,11 @@ public class UIManager : MonoBehaviour  {
         }
     }
 
-    void Start()  {
+    /*void Start()  {
         if (text != null)  {
             text.text = "Game Started!";
         }
-    }
+    }*/
 
     public void UpdateText(string message)  {
         if (text != null)  {
@@ -37,6 +38,32 @@ public class UIManager : MonoBehaviour  {
     }
     public bool getTextAcive()  {
         return(textActive);
+    }
+
+    public void setSecondaryText(int setTo)  {
+        secondaryText = setTo;
+    }
+
+    public void setBoxOperative(Transform newOp)  {
+        newOp.position += new Vector3(0, 10, 0);
+        boxOperative = newOp;
+        //UpdateText("Much better. Now back to muredering");
+    }
+
+    public void secondTextBoxOpen()  {
+        InputManager.Instance.setInspectMode(false);
+        secondTextBox.position = new Vector3(0, -3.9927f, 0);
+        secondOperative.position = new Vector3(-5.787f, -4.033f, 0);
+        secondText.transform.localPosition = new Vector3(1.52f, -3.98f, 0);
+        secondTextAccept.transform.localPosition = new Vector3(0, 0, 0);
+    }
+
+    public void secondTextBoxClose()  {
+        InputManager.Instance.setInspectMode(false);
+        secondTextBox.position += new Vector3(0, -15, 0);
+        secondOperative.position += new Vector3(0, -15, 0);
+        secondText.transform.localPosition += new Vector3(0, -15, 0);
+        secondTextAccept.transform.localPosition += new Vector3(0, -12, 0);
     }
 
     public void textBoxOpen()  {
@@ -49,6 +76,9 @@ public class UIManager : MonoBehaviour  {
     }
 
     public void textBoxClose()  {
+        if (secondaryText == 1)  {
+            UpdateText("\"Judging by this note, it seems likely the cause of this murder was one brother's jealousy over the other's success. Probably an inferiority complex, or perhaps delusions of grandeur.\"");
+        }
         textActive = false;
         textBox.position += new Vector3(0, -4, 0);
         boxOperative.position += new Vector3(0, -4, 0);
