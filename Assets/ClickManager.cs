@@ -52,7 +52,6 @@ public class ClickManager : MonoBehaviour
             Debug.Log("NULL" + item.goToPoint.position);
         }
         else  {
-            StartCoroutine(gameManager.MoveToPoint(player, item.goToPoint.position, moveSpeed));
             attemptItemAquisition(item);
 
         }
