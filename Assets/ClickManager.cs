@@ -344,6 +344,7 @@ public class ClickManager : MonoBehaviour
                 switch (selectedItem.itemID)  {
                     case 201:
                         if (selectedItem.itemID == imageCheck.imageID)  {
+                            audioManager.PlaySFX(audioManager.cupboard);
                             Destroy(imageCheck.gameObject);
                             StartCoroutine(gameManager.MoveToPoint(tempObject, new Vector2(-5.461f, -1.951f), 15));
                             //tempObject.position = new Vector3(-5.461f, -1.951f, 0);
