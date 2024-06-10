@@ -14,7 +14,10 @@ public class ClickManager : MonoBehaviour
     //These are the preloaded, out of bounds objects for level 2
     public Transform smallLockerOpen, tempObject = null;
     public itemData cakePoison, cakeChocolate;
+    //These are the preloaded, out of bounds objects for level 3
+    private bool evidence1 = false, evidence2 = false, evidence3 = false, evidence4 = false, evidence5 = false;
     public itemData selectedItem = null, holdItem = null;
+    public Image tempImage = null;
     static float moveSpeed = 6f, itemMoveSpeed = 60f;
     GameManager gameManager;
     UIManager uiManager;
@@ -37,7 +40,7 @@ public class ClickManager : MonoBehaviour
             Destroy(gameObject); // If another instance already exists, destroy this one
         }
 
-        if (candleLit == null)  {
+        if (candleLit == null && cakePoison != null)  {
             UIManager.Instance.UpdateText("I need to gain access to the kitchen if i want to poison that fat pig, however simply walking in will get me kicked right back out...");
         }
     }
@@ -55,6 +58,10 @@ public class ClickManager : MonoBehaviour
 
     public void TempHoldObject(Transform tempHold)  {
         tempObject = tempHold;
+    }
+
+    public void TempHoldImage(Image placeTempImage)  {
+        tempImage = placeTempImage;
     }
 
     public void TempHoldItem(itemData item)  {
@@ -130,8 +137,37 @@ public class ClickManager : MonoBehaviour
     public void moveObjectX(int posChange)  {
         
         tempObject.position += new Vector3(posChange, 0, 0);;
+        tempObject = null;
+    }
 
-        Debug.Log("Action completed after 3 seconds delay");
+    public void moveImageX(int posChange)  {
+        
+        tempImage.transform.localPosition += new Vector3(posChange, 0, 0);
+        tempImage = null;
+    }
+
+    public void setEvidence (int code)  {
+        switch(code)  {
+            case 1:
+                evidence1 = true;
+                break;
+            case 2:
+                evidence2 = true;
+                break;
+            case 3:
+                evidence3 = true;
+                break;
+            case 4:
+                evidence4 = true;
+                break;
+            case 5:
+                evidence5 = true;
+                break;
+        }
+        if (evidence1 == true && evidence2 == true && evidence3 == true && evidence4 == true && evidence5 == true)  {
+            UIManager.Instance.UpdateText("Hrudidur, nine killer pleasures, um, i mean seven deadly sins.");
+        }
+
     }
 
     public void events(imageData imageCheck)  {
@@ -284,6 +320,19 @@ public class ClickManager : MonoBehaviour
                         break;
                 }
             }
+            else if (selectedItem.itemID < 300)  {
+                switch (selectedItem.itemID)  {
+                    case 201:
+                        if (selectedItem.itemID == imageCheck.imageID)  {
+                            Destroy(imageCheck.gameObject);
+                            StartCoroutine(gameManager.MoveToPoint(tempObject, new Vector2(-5.461f, -1.951f), 15));
+                            //tempObject.position = new Vector3(-5.461f, -1.951f, 0);
+                            
+                            tempImage.transform.localPosition = new Vector3(-5.461f, -1.951f, 0);
+                        }
+                        break;
+                }
+            }
         }
     }
 
@@ -333,6 +382,10 @@ public class ClickManager : MonoBehaviour
                 switch (selectedItem.itemID)  {
                 }
             }
+            else if (item.itemID < 300)  {
+                switch (item.itemID)  {
+                }
+            }
         }
     }
 
@@ -371,6 +424,10 @@ public class ClickManager : MonoBehaviour
                     case 101:
                         UIManager.Instance.UpdateText("Look at that fatass eating. Well not for much longer");
                         break;
+                }
+            }
+            else if (envCode < 300)  {
+                switch (envCode)  {
                 }
             }
         }
