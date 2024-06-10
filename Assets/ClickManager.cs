@@ -109,6 +109,12 @@ public class ClickManager : MonoBehaviour
             selectedItem.item.position = new Vector3(5.5f, 4.5f, 0);
             for (int i = 0; i < 50; i++)  {
                 //Debug.Log("Action loop started");
+                if (i < 6) {
+                    audioManager.PlaySFX(audioManager.eating);
+                }
+                else {
+                    audioManager.PlaySFX(audioManager.bite);
+                }
                 selectedItem.item.position += new Vector3(1.1f, 0, 0);
                 yield return new WaitForSeconds(speeeeeed);
                 selectedItem.item.position += new Vector3(-1.1f, 0, 0);
@@ -117,6 +123,8 @@ public class ClickManager : MonoBehaviour
             }
             selectedItem.item.position += new Vector3(1.1f, 0, 0);
             tempObject.position += new Vector3(-10, 0, 0);
+            yield return new WaitForSeconds(0.5f);
+            audioManager.PlaySFX(audioManager.deathSound);
         }
 
         Debug.Log("Action completed after 3 seconds delay");
@@ -235,6 +243,7 @@ public class ClickManager : MonoBehaviour
                             attemptItemAquisition(holdItem);
                             smallLockerOpen.position += new Vector3(10, 0, 0);
                             Destroy(imageCheck.gameObject);
+                            audioManager.PlaySFX(audioManager.boxOpen);
                             //Play HEY!! sound effect here
                             holdItem = null;
                         }
@@ -249,6 +258,7 @@ public class ClickManager : MonoBehaviour
                             holdItem.item.position += new Vector3(10, 0, 0);
                             attemptItemAquisition(holdItem);
                             Destroy(imageCheck.gameObject);
+                            audioManager.PlaySFX(audioManager.poison);
                             //Play HEY!! sound effect here
                             holdItem = null;
                         }
@@ -285,6 +295,7 @@ public class ClickManager : MonoBehaviour
                         if (selectedItem.itemID == imageCheck.imageID)  {
                             Destroy(tempObject.gameObject);
                             Destroy(imageCheck.gameObject);
+                            audioManager.PlaySFX(audioManager.sweeping);
                             //Play HEY!! sound effect here
                             blueFlag = true;
                             holdItem = null;

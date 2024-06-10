@@ -3154,6 +3154,13 @@ MonoBehaviour:
   invClose: {fileID: 8300000, guid: 10905d9e51eb2774bbb6f3d6edbc53b3, type: 3}
   inspect: {fileID: 8300000, guid: a47c2c33eb1a8474ca9984a3356defc2, type: 3}
   placeFrame: {fileID: 8300000, guid: 943a3469307532a4488acc8c4ae0fdc4, type: 3}
+  hat: {fileID: 0}
+  sweeping: {fileID: 0}
+  locker: {fileID: 0}
+  boxOpen: {fileID: 0}
+  fridgeOpen: {fileID: 0}
+  eating: {fileID: 0}
+  poison: {fileID: 0}
 --- !u!1 &544004907
 GameObject:
   m_ObjectHideFlags: 0
@@ -5622,7 +5629,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.615
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6389,6 +6396,13 @@ MonoBehaviour:
   invClose: {fileID: 8300000, guid: 10905d9e51eb2774bbb6f3d6edbc53b3, type: 3}
   inspect: {fileID: 8300000, guid: a47c2c33eb1a8474ca9984a3356defc2, type: 3}
   placeFrame: {fileID: 8300000, guid: 943a3469307532a4488acc8c4ae0fdc4, type: 3}
+  hat: {fileID: 0}
+  sweeping: {fileID: 0}
+  locker: {fileID: 0}
+  boxOpen: {fileID: 0}
+  fridgeOpen: {fileID: 0}
+  eating: {fileID: 0}
+  poison: {fileID: 0}
 --- !u!1 &1444763578
 GameObject:
   m_ObjectHideFlags: 0

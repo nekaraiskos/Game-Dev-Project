@@ -18,6 +18,16 @@ public class AudioManager : MonoBehaviour
     public AudioClip invClose;
     public AudioClip inspect;
     public AudioClip placeFrame;
+    public AudioClip hat;
+    public AudioClip sweeping;
+    public AudioClip locker;
+    public AudioClip boxOpen;
+    public AudioClip fridgeOpen;
+    public AudioClip eating;
+    public AudioClip poison;
+    public AudioClip bite;
+    public AudioClip deathSound;
+    public AudioClip hey;
 
     private void Start () {
         musicSource.clip = background;
